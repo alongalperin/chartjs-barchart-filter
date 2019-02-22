@@ -10,8 +10,6 @@ The result I wanted:
 jsFiddle: https://jsfiddle.net/ze7xwnLv/1/  
 <img src="images/2.gif" width="500" height="350" />
   
-I uploaded here example files.  
-
 Explanation regarding the solution:  
 *A.* First I get all the data to sit in global variables.  
 We have 4 lists:  
