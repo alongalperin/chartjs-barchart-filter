@@ -3,11 +3,11 @@ I want to share with you a small adjustment I made for my project with the bar c
 The result I wanted to achieve was to be able to filter specific bars from the chart.  
   
 This is the original use with the legend that comes with ChartJS:  
-jsFiddle:  
+jsFiddle: https://jsfiddle.net/xkvoncth/1/  
 <img src="images/1.gif" width="500" height="350" />
   
 The result I wanted:  
-jsFiddle: https://jsfiddle.net/ze7xwnLv/  
+jsFiddle: https://jsfiddle.net/ze7xwnLv/1/  
 <img src="images/2.gif" width="500" height="350" />
   
 I uploaded here example files.  
