@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="Chart_2_7_3.min.js"></script>
+</head>
+<body>
+
+<div style="width: 800px; height: 800px; padding-left:10px">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+let globalLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+
+const numberOfBars = globalLabels.length
+
+let globalColors = ['#9ACD32', '#1E90FF', '#F08080', '#7B68EE', '#808000', '#2F4F4F', '	#F08080']
+
+let globalData = [10, 20, 15, 18,5, 7, 25]
+
+let globalHidden = []
+for (let i = 0; i < numberOfBars; i += 1) {
+	globalHidden.push(false)
+}
+
+var barChartData = {
+  labels: globalLabels,
+  datasets: [{
+    label: 'Example 1',
+    backgroundColor: globalColors,
+    borderWidth: 1,
+    data: globalData
+  }]
+}
+
+let barOptions =  {
+  responsive: true,
+  legend: {
+    position: 'top',
+    labels: {
+      generateLabels: function (chart) {
+        var result = []
+        
+        for (let i = 0; i < numberOfBars; i += 1) {
+          result.push({
+            text: globalLabels[i],
+            fillStyle: globalColors[i],
+            index: i,
+            hidden: globalHidden[i]
+          })
+        }
+        
+        return result
+      }
+    },
+    onClick (e, legendItem) {
+        var index = legendItem.index;
+        let ci = this.chart
+        // toggle boolean in isHidden
+        globalHidden[index] = !globalHidden[index]
+        // reset the data in chart compnent
+        ci.config.data.datasets[0].data = []
+        ci.config.data.datasets[0].backgroundColor = []
+        ci.config.data.labels = []
+        
+        // push new data to chart compnent
+        for (let i = 0; i < numberOfBars; i++) {
+        	if (globalHidden[i] === false) {
+          	ci.config.data.datasets[0].data.push(globalData[i])
+            ci.config.data.datasets[0].backgroundColor.push(globalColors[i])
+			ci.config.data.labels.push(globalLabels[i])
+          }
+        }
+        ci.update()
+  	}
+  },
+  title: {
+    display: true,
+    text: 'Chart.js Bar Chart'
+  },
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  }
+}
+
+var ctx = document.getElementById('canvas').getContext('2d');
+window.myBar = new Chart(ctx, {
+  type: 'bar',
+  data: barChartData,
+	options: barOptions
+})
+</script>
+</body>
+</html>
