@@ -10,6 +10,10 @@ The result I wanted:
 jsFiddle https://jsfiddle.net/ze7xwnLv/1/  
 <img src="images/2.gif" width="500" height="350" />
   
+# Usage
+  Place you data, labels and colors (not mandatory) using the globalData, globalLabels and globalColors variables.
+  
+# Explanation
 Explanation regarding the solution:  
 *A.* First I place all the data in global variables.  
 We have 4 lists:
