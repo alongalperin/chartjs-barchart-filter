@@ -83,5 +83,4 @@ onClick (e, legendItem) {
 }
 ```
   
-  
-Hope this will help you
+ 
